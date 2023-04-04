@@ -1,4 +1,5 @@
 const btnEl = document.getElementById("btn");
+const appEl = document.getElementById("app");
 
 function createNoteEl(id, content){
     //console.log(id, content);
@@ -12,11 +13,21 @@ function createNoteEl(id, content){
         if(warning){
             deleteNote(id, element)
         }
-    })
+    });
+
+    element.addEventListener("input", ()=>{
+        updateNote(id, element.value)
+    });
+
+    return element;
 }
 
 function deleteNote(){
-    
+
+}
+
+function updateNote(){
+
 }
 
 function addNote(){
@@ -27,6 +38,8 @@ function addNote(){
      //console.log(noteObj);
     //console.log("clicked");
     const noteEl = createNoteEl (noteObj.id, noteObj.content)
+    appEl.insertBefore(noteEl, btnEl)
+
 
 
 }
